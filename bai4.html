@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kiểm tra ký tự số</title>
+  <script>
+    function laKyTuSo(char) {
+      // Sử dụng biểu thức chính quy để kiểm tra xem ký tự có phải là số hay không
+      var regex = /^[0-9]$/;
+      return regex.test(char);
+    }
+
+    function kiemTraKyTu() {
+      var userInput = document.getElementById("inputChar").value;
+      var resultContainer = document.getElementById("result");
+
+      if (userInput.length === 1) {
+        if (laKyTuSo(userInput)) {
+          resultContainer.innerHTML = "Ký tự nhập vào là số.";
+        } else {
+          resultContainer.innerHTML = "Ký tự nhập vào không phải là số.";
+        }
+      } else {
+        resultContainer.innerHTML = "Vui lòng nhập đúng một ký tự.";
+      }
+    }
+  </script>
+</head>
+<body>
+<h1>Kiểm tra ký tự số</h1>
+<label for="inputChar">Nhập một ký tự:</label>
+<input type="text" id="inputChar" maxlength="1" />
+<button onclick="kiemTraKyTu()">Kiểm tra</button>
+<div id="result"></div>
+</body>
+</html>

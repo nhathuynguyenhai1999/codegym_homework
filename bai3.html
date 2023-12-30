@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Giai thừa</title>
+  <script>
+    function tinhGiaiThua(n) {
+      if (n === 0 || n === 1) {
+        return 1;
+      } else {
+        return n * tinhGiaiThua(n - 1);
+      }
+    }
+
+    function hienThiGiaiThua() {
+      var userInput = document.getElementById("inputNumber").value;
+      var resultContainer = document.getElementById("result");
+
+      // Kiểm tra xem người dùng đã nhập số chưa
+      if (isNaN(userInput)) {
+        resultContainer.innerHTML = "Vui lòng nhập một số nguyên.";
+      } else {
+        // Chuyển đổi chuỗi thành số nguyên
+        var number = parseInt(userInput);
+
+        // Gọi hàm tính giai thừa và hiển thị kết quả
+        var factorial = tinhGiaiThua(number);
+        resultContainer.innerHTML = "Giai thừa của " + number + " là: " + factorial;
+      }
+    }
+  </script>
+</head>
+<body>
+<h1>Tính Giai Thừa</h1>
+<label for="inputNumber">Nhập một số nguyên:</label>
+<input type="text" id="inputNumber" />
+<button onclick="hienThiGiaiThua()">Tính Giai Thừa</button>
+<div id="result"></div>
+</body>
+</html>

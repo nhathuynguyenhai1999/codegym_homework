@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bình phương số</title>
+  <script>
+    // Hàm tính bình phương của một số
+    function tinhBinhPhuong() {
+      // Lấy giá trị từ ô input có id là "soInput"
+      var soNhapVao = document.getElementById("soInput").value;
+
+      // Chuyển đổi giá trị thành số
+      var so = parseFloat(soNhapVao);
+
+      // Kiểm tra nếu giá trị hợp lệ
+      if (!isNaN(so)) {
+        // Tính bình phương
+        var binhPhuong = so * so;
+
+        // Hiển thị kết quả trong thẻ p có id là "ketQua"
+        document.getElementById("ketQua").innerHTML = "Bình phương của " + so + " là: " + binhPhuong;
+      } else {
+        // Hiển thị thông báo lỗi nếu giá trị không hợp lệ
+        document.getElementById("ketQua").innerHTML = "Vui lòng nhập một số hợp lệ.";
+      }
+    }
+  </script>
+</head>
+<body>
+<h1>Tính Bình Phương</h1>
+
+<!-- Ô input để nhập số -->
+<label for="soInput">Nhập một số:</label>
+<input type="text" id="soInput">
+
+<!-- Nút để gọi hàm -->
+<button onclick="tinhBinhPhuong()">Tính Bình Phương</button>
+
+<!-- Thẻ p để hiển thị kết quả -->
+<p id="ketQua"></p>
+</body>
+</html>

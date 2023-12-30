@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Diện tích và Chu vi Hình tròn</title>
+  <script>
+    // Hàm tính diện tích hình tròn
+    function tinhDienTich() {
+      var banKinh = parseFloat(document.getElementById("banKinh").value);
+
+      if (!isNaN(banKinh) && banKinh > 0) {
+        var dienTich = Math.PI * Math.pow(banKinh, 2);
+        alert("Diện tích của hình tròn là: " + dienTich.toFixed(2));
+      } else {
+        alert("Vui lòng nhập một số dương cho bán kính.");
+      }
+    }
+
+    // Hàm tính chu vi hình tròn
+    function tinhChuVi() {
+      var banKinh = parseFloat(document.getElementById("banKinh").value);
+
+      if (!isNaN(banKinh) && banKinh > 0) {
+        var chuVi = 2 * Math.PI * banKinh;
+        alert("Chu vi của hình tròn là: " + chuVi.toFixed(2));
+      } else {
+        alert("Vui lòng nhập một số dương cho bán kính.");
+      }
+    }
+  </script>
+</head>
+<body>
+<h1>Diện tích và Chu vi Hình tròn</h1>
+
+<!-- Ô input để nhập bán kính -->
+<label for="banKinh">Nhập bán kính:</label>
+<input type="text" id="banKinh">
+
+<!-- Nút để gọi hàm tính diện tích -->
+<button onclick="tinhDienTich()">Tính Diện Tích</button>
+
+<!-- Nút để gọi hàm tính chu vi -->
+<button onclick="tinhChuVi()">Tính Chu Vi</button>
+</body>
+</html>
