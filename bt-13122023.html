@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-10">
+    </head>
+    <title>Quản lý sản phẩm</title>
+    <body>
+        <strong>Mlem cùng bạn Huy béo</strong>
+        <style>
+            td {
+                padding: 20px 100px;
+              }
+            
+              table {
+                border: 1px solid black;
+              }
+            
+              tr:nth-child(odd) {
+                background: beige;
+              }
+        </style>
+        <button onclick="add()">Thêm hàng ngon</button>
+        <table>
+            <tr style="background: violet">
+              <td>Stt</td>
+              <td>Tên</td>
+              <td>Ảnh</td>
+              <td>Giá</td>
+              <td>Sửa</td>
+              <td>Xóa</td>
+            </tr>
+            <tbody id="main-content">
+            </tbody>
+          </table>
+    </body>
+    <script>
+        class Product {
+            name;
+            img;
+            price;
+            constructor(name,img,price) {
+                this.name = name;
+                this.img = img;
+                this.price = price;
+            }
+        }
+        let girl0 = new Product("Nguyễn Thị Thảo Tây", "https://scontent.fhan20-1.fna.fbcdn.net/v/t39.30808-6/377978631_1705694293229171_4905688731073765505_n.jpg?stp=cp6_dst-jpg_p640x640&_nc_cat=103&ccb=1-7&_nc_sid=dd5e9f&_nc_ohc=_h3zHE33y-4AX_JScFX&_nc_ht=scontent.fhan20-1.fna&oh=00_AfDlnS--b35ZCUpiukrgm0kuRhiME5ce5tZIb1UEZnKIsQ&oe=6599DACD","5000 USD");
+        let girl1 = new Product("Nguyễn Thị Kiều Oanh","https://scontent.fhan20-1.fna.fbcdn.net/v/t39.30808-6/402090700_3590030261272865_7720880276428151983_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=a73e89&_nc_ohc=yJ1J6oa82igAX_X3aHm&_nc_ht=scontent.fhan20-1.fna&oh=00_AfCHvVuTqLZuKJuSZUmlTt0zX3UoEhQrkyEQzuibQ6G1lQ&oe=65996DAD","700 USĐ");
+        let products = [girl0, girl1];
+        hienthi();
+        function add() {
+            const name = prompt("input name");
+            const img = prompt("input irl images");
+            const price = prompt("input price");
+            let product = new Product(name,img,price);
+            products.push(product);
+            hienthi();
+        }
+        function editProduct(){
+            let name = prompt("input name");
+            let img = prompt("input irl images");
+            let price = prompt("input price");
+            let product = new Product(name,img,price);
+            products[index] = product;
+            hienthi();
+        }
+        function deleteProduct(index) {
+            products.splice(index,1);
+            hienthi();
+        }
+        function hienthi() {
+            let str = "";
+            for (let i = 0 ; i < products.length ; i++){
+                str += `<tr>
+                    <td>${i + 1}</td>
+                    <td>${products[i].name}</td>
+                    <td>
+                      <img src='${products[i].img}' width="100px" height="120px"/>
+                    </td>
+                    <td>${products[i].price}</td>
+                    <td>
+                      <button onclick="editProduct(${i})">Sửa</button>
+                    </td>
+                    <td>
+                      <button onclick="deleteProduct(${i})">Xóa</button>
+                    </td>
+                  </tr>`;
+            }
+            document.getElementById("main-content").innerHTML= str;
+        }
+    </script>
+</html>
